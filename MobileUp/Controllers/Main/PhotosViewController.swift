@@ -74,7 +74,7 @@ extension PhotosViewController {
         let group = NSCollectionLayoutGroup
             .horizontal(layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(width / 2.0)),
+                heightDimension: .absolute((width - 2) / 2.0)),
                         subitem: item,
                         count: 2)
         group.interItemSpacing = .fixed(2)
