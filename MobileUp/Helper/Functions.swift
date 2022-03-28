@@ -25,7 +25,7 @@ func findClosestSizeImage(
         if imageSizes.count == 1 {
             return imageSizes[0].url
         }
-        print(imageSizes.compactMap { (size: $0, distance: distance($0)) }.sorted { $0.distance < $1.distance })
+        print(imageSizes.compactMap { (size: $0, distance: distance($0)) }.sorted { $0.distance < $1.distance }.first!)
         let closestSize = imageSizes.compactMap { (size: $0, distance: distance($0)) }.sorted { $0.distance < $1.distance }.first!.size
         return closestSize.url
     }

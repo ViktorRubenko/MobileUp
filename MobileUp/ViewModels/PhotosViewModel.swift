@@ -23,7 +23,7 @@ final class PhotosViewModel: PhotosViewModelProtocol {
                     return
                 }
                 self.photos.value = response.items.compactMap {
-                    guard let url = findClosestSizeImage(imageSizes: $0.sizes, requiredSize: CGSize(width: 200, height: 200)) else {
+                    guard let url = findClosestSizeImage(imageSizes: $0.sizes, requiredSize: CGSize(width: 500, height: 500)) else {
                         return nil
                     }
                     return PhotoCellModel(url: url)

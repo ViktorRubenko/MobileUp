@@ -33,6 +33,9 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupBinders()
+        
+        viewModel.fetch()
     }
 }
 // MARK: - Methods
@@ -48,7 +51,9 @@ extension PhotosViewController {
     }
     
     func setupBinders() {
-        
+        viewModel.photos.bind { [weak self] _ in
+            self?.collectionView.reloadData()
+        }
     }
     
     func createSection(_ sectionIndex: Int, _ environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
@@ -76,17 +81,13 @@ extension PhotosViewController {
 // MARK: -
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        8
+        viewModel.photos.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        cell.configure("https://picsum.photos/600/600")
+        cell.configure(viewModel.photos.value[indexPath.row])
         return cell
     }
 }

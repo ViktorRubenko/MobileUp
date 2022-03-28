@@ -43,15 +43,15 @@ extension PhotoCollectionViewCell {
         }
     }
     
-    func configure(_ imageURL: String) {
-        let url = URL(string: imageURL)
-        let proccessor = DownsamplingImageProcessor(size: CGSize(width: 200, height: 200))
+    func configure(_ model: PhotoCellModel) {
+        let url = URL(string: model.url)
+//        let proccessor = DownsamplingImageProcessor(size: CGSize(width: 200, height: 200))
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(
             with: url,
             options: [
-                .processor(proccessor),
-                .transition(.fade(0.2)),
+//                .processor(proccessor),
+//                .transition(.fade(0.2)),
                 .cacheOriginalImage
             ])
     }
