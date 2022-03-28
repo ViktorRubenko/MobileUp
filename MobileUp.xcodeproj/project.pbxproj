@@ -78,14 +78,46 @@
 		E3FCCCA427F1D72500F6B93D /* MobileUp */ = {
 			isa = PBXGroup;
 			children = (
-				E3FCCCA527F1D72500F6B93D /* AppDelegate.swift */,
-				E3FCCCA727F1D72500F6B93D /* SceneDelegate.swift */,
-				E3FCCCA927F1D72500F6B93D /* ViewController.swift */,
-				E3FCCCAE27F1D72700F6B93D /* Assets.xcassets */,
-				E3FCCCB027F1D72700F6B93D /* LaunchScreen.storyboard */,
-				E3FCCCB327F1D72700F6B93D /* Info.plist */,
+				E3FCCCB927F1D86900F6B93D /* Application */,
+				E3FCCCBD27F1D8B700F6B93D /* Controllers */,
+				E3FCCCBB27F1D87B00F6B93D /* Resources */,
+				E3FCCCBC27F1D8B200F6B93D /* Views */,
 			);
 			path = MobileUp;
+			sourceTree = "<group>";
+		};
+		E3FCCCB927F1D86900F6B93D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCA527F1D72500F6B93D /* AppDelegate.swift */,
+				E3FCCCA727F1D72500F6B93D /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E3FCCCBB27F1D87B00F6B93D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCAE27F1D72700F6B93D /* Assets.xcassets */,
+				E3FCCCB327F1D72700F6B93D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3FCCCBC27F1D8B200F6B93D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCB027F1D72700F6B93D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3FCCCBD27F1D8B700F6B93D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCA927F1D72500F6B93D /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,7 +380,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GW7LHNH94F;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MobileUp/Info.plist;
+				INFOPLIST_FILE = MobileUp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -378,7 +410,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GW7LHNH94F;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MobileUp/Info.plist;
+				INFOPLIST_FILE = MobileUp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
