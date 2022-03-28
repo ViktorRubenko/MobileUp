@@ -9,6 +9,7 @@ import UIKit
 
 final class PhotosViewModel: PhotosViewModelProtocol {
     let photos = Observable<[PhotoCellModel]>([])
+    let errorMessage = Observable<String>("")
     
     func fetch() {
         getPhotos()
@@ -19,7 +20,7 @@ final class PhotosViewModel: PhotosViewModelProtocol {
             switch result {
             case .success(let photosResponse):
                 guard let response = photosResponse.response else {
-                    print(photosResponse.responseError?.errorMsg)
+                    self.errorHandler(APIError.responseError)
                     return
                 }
                 self.photos.value = response.items.compactMap {
@@ -29,8 +30,12 @@ final class PhotosViewModel: PhotosViewModelProtocol {
                     return PhotoCellModel(url: url)
                 }
             case .failure(let error):
-                print(error)
+                self.errorHandler(error)
             }
         }
+    }
+    
+    private func errorHandler(_ error: Error) {
+        errorMessage.value = error.localizedDescription
     }
 }

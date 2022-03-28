@@ -39,3 +39,16 @@ extension AuthManagerError: LocalizedError {
         }
     }
 }
+
+enum APIError: Error {
+    case responseError
+}
+
+extension APIError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .responseError:
+            return NSLocalizedString("Invalid response.", comment: "Description for invalid response error.")
+        }
+    }
+}

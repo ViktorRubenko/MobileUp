@@ -54,6 +54,12 @@ extension PhotosViewController {
         viewModel.photos.bind { [weak self] _ in
             self?.collectionView.reloadData()
         }
+        
+        viewModel.errorMessage.bind { [weak self] errorDescription in
+            let alert = UIAlertController(title: "Error", message: errorDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self?.present(alert, animated: true)
+        }
     }
     
     func createSection(_ sectionIndex: Int, _ environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {

@@ -9,4 +9,5 @@ import Foundation
 
 protocol PhotosViewModelProtocol: ViewModelProtocol {
     var photos: Observable<[PhotoCellModel]> { get }
+    var errorMessage: Observable<String> { get }
 }
