@@ -12,6 +12,15 @@
 		E3FCCCAA27F1D72500F6B93D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCA927F1D72500F6B93D /* ViewController.swift */; };
 		E3FCCCAF27F1D72700F6B93D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3FCCCAE27F1D72700F6B93D /* Assets.xcassets */; };
 		E3FCCCB227F1D72700F6B93D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3FCCCB027F1D72700F6B93D /* LaunchScreen.storyboard */; };
+		E3FCCCC027F1D95D00F6B93D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCBF27F1D95D00F6B93D /* AuthManager.swift */; };
+		E3FCCCC427F1E19F00F6B93D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCC327F1E19F00F6B93D /* WelcomeViewController.swift */; };
+		E3FCCCCA27F1E3C500F6B93D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCC927F1E3C500F6B93D /* Constants.swift */; };
+		E3FCCCCC27F1E76F00F6B93D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCCB27F1E76F00F6B93D /* AuthViewController.swift */; };
+		E3FCCCCF27F1EA1400F6B93D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCCE27F1EA1400F6B93D /* AuthViewModel.swift */; };
+		E3FCCCD227F1EAA100F6B93D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCD127F1EAA100F6B93D /* Observable.swift */; };
+		E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */; };
+		E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */; };
+		E3FCCCDE27F2057D00F6B93D /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCDD27F2057D00F6B93D /* CoordinatorProtocol.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +35,15 @@
 		E3FCCCAE27F1D72700F6B93D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3FCCCB127F1D72700F6B93D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3FCCCB327F1D72700F6B93D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3FCCCBF27F1D95D00F6B93D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		E3FCCCC327F1E19F00F6B93D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		E3FCCCC927F1E3C500F6B93D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E3FCCCCB27F1E76F00F6B93D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		E3FCCCCE27F1EA1400F6B93D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E3FCCCD127F1EAA100F6B93D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelProtocol.swift; sourceTree = "<group>"; };
+		E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		E3FCCCDD27F2057D00F6B93D /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +96,12 @@
 		E3FCCCA427F1D72500F6B93D /* MobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				E3FCCCDC27F2056D00F6B93D /* Coordinators */,
+				E3FCCCD727F1FD0D00F6B93D /* Protocols */,
 				E3FCCCB927F1D86900F6B93D /* Application */,
+				E3FCCCD027F1EA9400F6B93D /* Helper */,
+				E3FCCCBE27F1D94600F6B93D /* Managers */,
+				E3FCCCCD27F1EA0400F6B93D /* ViewModels */,
 				E3FCCCBD27F1D8B700F6B93D /* Controllers */,
 				E3FCCCBB27F1D87B00F6B93D /* Resources */,
 				E3FCCCBC27F1D8B200F6B93D /* Views */,
@@ -100,6 +123,7 @@
 			children = (
 				E3FCCCAE27F1D72700F6B93D /* Assets.xcassets */,
 				E3FCCCB327F1D72700F6B93D /* Info.plist */,
+				E3FCCCC927F1E3C500F6B93D /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -115,9 +139,61 @@
 		E3FCCCBD27F1D8B700F6B93D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E3FCCCD327F1EC6300F6B93D /* New Group */,
 				E3FCCCA927F1D72500F6B93D /* ViewController.swift */,
+				E3FCCCC327F1E19F00F6B93D /* WelcomeViewController.swift */,
+				E3FCCCCB27F1E76F00F6B93D /* AuthViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E3FCCCBE27F1D94600F6B93D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCBF27F1D95D00F6B93D /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E3FCCCCD27F1EA0400F6B93D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCCE27F1EA1400F6B93D /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E3FCCCD027F1EA9400F6B93D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCD127F1EAA100F6B93D /* Observable.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E3FCCCD327F1EC6300F6B93D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E3FCCCD727F1FD0D00F6B93D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */,
+				E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E3FCCCDC27F2056D00F6B93D /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCDD27F2057D00F6B93D /* CoordinatorProtocol.swift */,
+			);
+			name = Coordinators;
+			path = Protocols/Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,8 +311,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3FCCCAA27F1D72500F6B93D /* ViewController.swift in Sources */,
+				E3FCCCC427F1E19F00F6B93D /* WelcomeViewController.swift in Sources */,
+				E3FCCCC027F1D95D00F6B93D /* AuthManager.swift in Sources */,
+				E3FCCCCC27F1E76F00F6B93D /* AuthViewController.swift in Sources */,
+				E3FCCCD227F1EAA100F6B93D /* Observable.swift in Sources */,
+				E3FCCCCF27F1EA1400F6B93D /* AuthViewModel.swift in Sources */,
+				E3FCCCDE27F2057D00F6B93D /* CoordinatorProtocol.swift in Sources */,
 				E3FCCCA627F1D72500F6B93D /* AppDelegate.swift in Sources */,
 				E3FCCCA827F1D72500F6B93D /* SceneDelegate.swift in Sources */,
+				E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */,
+				E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */,
+				E3FCCCCA27F1E3C500F6B93D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
