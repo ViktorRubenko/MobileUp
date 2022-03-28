@@ -21,6 +21,7 @@
 		E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */; };
 		E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */; };
 		E3FCCCDE27F2057D00F6B93D /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCDD27F2057D00F6B93D /* CoordinatorProtocol.swift */; };
+		E3FCCCE027F2089700F6B93D /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCDF27F2089700F6B93D /* AuthCoordinator.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelProtocol.swift; sourceTree = "<group>"; };
 		E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		E3FCCCDD27F2057D00F6B93D /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		E3FCCCDF27F2089700F6B93D /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FCCCDD27F2057D00F6B93D /* CoordinatorProtocol.swift */,
+				E3FCCCDF27F2089700F6B93D /* AuthCoordinator.swift */,
 			);
 			name = Coordinators;
 			path = Protocols/Coordinators;
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3FCCCAA27F1D72500F6B93D /* ViewController.swift in Sources */,
+				E3FCCCE027F2089700F6B93D /* AuthCoordinator.swift in Sources */,
 				E3FCCCC427F1E19F00F6B93D /* WelcomeViewController.swift in Sources */,
 				E3FCCCC027F1D95D00F6B93D /* AuthManager.swift in Sources */,
 				E3FCCCCC27F1E76F00F6B93D /* AuthViewController.swift in Sources */,

@@ -29,6 +29,8 @@ class WelcomeViewController: UIViewController {
         return label
     }()
     
+    private lazy var authCoordinator = AuthCoordinator(presenter: self)
+    
     private var setupLayouts = true
     
     override func viewDidLoad() {
@@ -71,10 +73,16 @@ extension WelcomeViewController {
     private func setupActions() {
         authButton.addTarget(self, action: #selector(didTapAuthButton), for: .touchUpInside)
     }
+    
+     func showAuthError() {
+        let alert = UIAlertController(title: "Error", message: "Authorization Failed.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
 }
 // MARK: - Actions
 extension WelcomeViewController {
     @objc func didTapAuthButton() {
-        
+        authCoordinator.start()
     }
 }
