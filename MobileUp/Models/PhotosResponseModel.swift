@@ -10,11 +10,20 @@ import Foundation
 // MARK: - PhotosResponseModel
 struct PhotosResponseModel: Codable {
     let response: Response?
+    let responseError: ErrorResponse?
+    
+    enum CodingKeys: String, CodingKey {
+        case response
+        case responseError = "error"
+    }
+}
+
+// MARK: - ErrorResponse
+struct ErrorResponse: Codable {
     let errorCode: Int?
     let errorMsg: String?
     
     enum CodingKeys: String, CodingKey {
-        case response
         case errorCode = "error_code"
         case errorMsg = "error_msg"
     }
@@ -22,32 +31,19 @@ struct PhotosResponseModel: Codable {
 
 // MARK: - Response
 struct Response: Codable {
-    let count: Int
-    let items: [Item]
+    let items: [ImageItem]
 }
 
 // MARK: - Item
-struct Item: Codable {
-    let albumID, date, id, ownerID: Int
-    let sizes: [Size]
+struct ImageItem: Codable {
+    let date, id: Int
+    let sizes: [ImageSize]
     let text: String
-    let userID: Int
-    let hasTags: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case albumID = "album_id"
-        case date, id
-        case ownerID = "owner_id"
-        case sizes, text
-        case userID = "user_id"
-        case hasTags = "has_tags"
-    }
 }
 
 // MARK: - Size
-struct Size: Codable {
-    let height: Int
+struct ImageSize: Codable {
     let url: String
-    let type: String
     let width: Int
+    let height: Int
 }
