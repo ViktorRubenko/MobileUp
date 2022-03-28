@@ -23,3 +23,19 @@ extension AuthError: LocalizedError {
         }
     }
 }
+
+enum AuthManagerError: Error {
+    case tokenIsExpired
+    case unknown
+}
+
+extension AuthManagerError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .tokenIsExpired:
+            return NSLocalizedString("Token expired! Need to relog.", comment: "Description for TokenExpiredError.")
+        case .unknown:
+            return NSLocalizedString("Something go wrong...", comment: "Description for unknown error.")
+        }
+    }
+}

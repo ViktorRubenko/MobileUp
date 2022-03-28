@@ -84,4 +84,16 @@ final class AuthManager {
         UserDefaults.standard.removeObject(forKey: Keys.accessToken.rawValue)
         UserDefaults.standard.removeObject(forKey: Keys.expirationDate.rawValue)
     }
+    
+    public func withValidToken(completion: @escaping (Result<String, AuthManagerError>) -> Void) {
+        guard accessTokenIsValid else {
+            completion(.failure(AuthManagerError.tokenIsExpired))
+            return
+        }
+        guard let accessToken = accessToken else {
+            completion(.failure(AuthManagerError.unknown))
+            return
+        }
+        completion(.success(accessToken))
+    }
 }
