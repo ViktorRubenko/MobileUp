@@ -92,6 +92,7 @@ extension PhotosViewController {
             style: .plain,
             target: self,
             action: #selector(didTapExitButton))
+        navigationItem.rightBarButtonItem?.tintColor = .label
     }
 }
 // MARK: - Actions
