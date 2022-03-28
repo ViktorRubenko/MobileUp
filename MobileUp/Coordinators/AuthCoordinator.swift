@@ -17,7 +17,14 @@ final class AuthCoordinator: CoordinatorProtocol {
     
     func start() {
         let viewModel = AuthViewModel(completionHandler: { [weak self] success in
-            self?.presenter?.dismiss(animated: true, completion: success ? nil : { self?.presenter?.showAuthError() })
+            if success {
+                self?.presenter?.dismiss(animated: true, completion: {
+                    let vc = NavigationController()
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate?)??.changeRootViewController(vc)
+                })
+            } else {
+                self?.presenter?.dismiss(animated: true, completion: { self?.presenter?.showAuthError() })
+            }
         })
         let vc = AuthViewController(viewModel: viewModel)
         presenter?.present(vc, animated: true, completion: nil)
