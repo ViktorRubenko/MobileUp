@@ -20,7 +20,7 @@ final class AuthCoordinator: CoordinatorProtocol {
             switch result {
             case .success(_):
                 self?.presenter?.dismiss(animated: true, completion: {
-                    let vc = NavigationController()
+                    let vc = PhotosNavigationController()
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate?)??.changeRootViewController(vc)
                 })
             case .failure(let error):

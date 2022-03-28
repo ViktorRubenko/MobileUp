@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NavigationController: UINavigationController {
+class PhotosNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
