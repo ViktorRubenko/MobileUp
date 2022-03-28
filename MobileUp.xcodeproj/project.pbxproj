@@ -31,6 +31,7 @@
 		E3FCCEBB27F24A0A00F6B93D /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */; };
 		E3FCCEBD27F24B6600F6B93D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBC27F24B6600F6B93D /* Functions.swift */; };
 		E3FCCEBF27F252F800F6B93D /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */; };
+		E3FCCEC127F25C9000F6B93D /* ExitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC027F25C9000F6B93D /* ExitCoordinator.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		E3FCCEBC27F24B6600F6B93D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		E3FCCEC027F25C9000F6B93D /* ExitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				E3FCCCE627F2249800F6B93D /* AuthCoordinator.swift */,
 				E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */,
 				E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */,
+				E3FCCEC027F25C9000F6B93D /* ExitCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */,
 				E3FCCEB527F247FE00F6B93D /* APICaller.swift in Sources */,
 				E3FCCCED27F2289900F6B93D /* CustomErrors.swift in Sources */,
+				E3FCCEC127F25C9000F6B93D /* ExitCoordinator.swift in Sources */,
 				E3FCCEBD27F24B6600F6B93D /* Functions.swift in Sources */,
 				E3FCCEB927F249C300F6B93D /* PhotosViewModelProtocol.swift in Sources */,
 				E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */,

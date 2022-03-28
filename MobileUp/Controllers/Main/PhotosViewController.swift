@@ -33,6 +33,7 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupNavigationItem()
         setupBinders()
         
         viewModel.fetch()
@@ -83,8 +84,23 @@ extension PhotosViewController {
         
         return section
     }
+    
+    func setupNavigationItem() {
+        title = "Mobile UP Gallery"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: NSLocalizedString("Exit", comment: "Exit button title."),
+            style: .plain,
+            target: self,
+            action: #selector(didTapExitButton))
+    }
 }
-// MARK: -
+// MARK: - Actions
+extension PhotosViewController {
+    @objc func didTapExitButton() {
+        ExitCoordinator().start()
+    }
+}
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
