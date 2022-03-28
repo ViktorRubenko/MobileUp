@@ -10,5 +10,5 @@ import WebKit
 
 protocol AuthViewModelProtocol: ViewModelProtocol, WKNavigationDelegate {
     var webView: WKWebView? { get set }
-    var completionHandler: ((Bool) -> Void)? { get set }
+    var completionHandler: ((Result<Bool, AuthError>) -> Void)? { get set }
 }

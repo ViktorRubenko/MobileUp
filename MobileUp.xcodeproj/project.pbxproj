@@ -22,6 +22,7 @@
 		E3FCCCE227F210FE00F6B93D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCE127F210FE00F6B93D /* NavigationController.swift */; };
 		E3FCCCE827F2249800F6B93D /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCE627F2249800F6B93D /* AuthCoordinator.swift */; };
 		E3FCCCE927F2249800F6B93D /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */; };
+		E3FCCCED27F2289900F6B93D /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCEC27F2289900F6B93D /* CustomErrors.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		E3FCCCE127F210FE00F6B93D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		E3FCCCE627F2249800F6B93D /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		E3FCCCEC27F2289900F6B93D /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +143,8 @@
 		E3FCCCBD27F1D8B700F6B93D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E3FCCCC327F1E19F00F6B93D /* WelcomeViewController.swift */,
-				E3FCCCCB27F1E76F00F6B93D /* AuthViewController.swift */,
-				E3FCCCE127F210FE00F6B93D /* NavigationController.swift */,
+				E3FCCCEA27F224D400F6B93D /* Authorization */,
+				E3FCCCEB27F224E100F6B93D /* Main */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -168,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FCCCD127F1EAA100F6B93D /* Observable.swift */,
+				E3FCCCEC27F2289900F6B93D /* CustomErrors.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -188,6 +190,23 @@
 				E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		E3FCCCEA27F224D400F6B93D /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCC327F1E19F00F6B93D /* WelcomeViewController.swift */,
+				E3FCCCCB27F1E76F00F6B93D /* AuthViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		E3FCCCEB27F224E100F6B93D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E3FCCCE127F210FE00F6B93D /* NavigationController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +333,7 @@
 				E3FCCCE927F2249800F6B93D /* CoordinatorProtocol.swift in Sources */,
 				E3FCCCA827F1D72500F6B93D /* SceneDelegate.swift in Sources */,
 				E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */,
+				E3FCCCED27F2289900F6B93D /* CustomErrors.swift in Sources */,
 				E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */,
 				E3FCCCE827F2249800F6B93D /* AuthCoordinator.swift in Sources */,
 				E3FCCCCA27F1E3C500F6B93D /* Constants.swift in Sources */,

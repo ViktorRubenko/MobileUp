@@ -74,8 +74,8 @@ extension WelcomeViewController {
         authButton.addTarget(self, action: #selector(didTapAuthButton), for: .touchUpInside)
     }
     
-     func showAuthError() {
-        let alert = UIAlertController(title: "Error", message: "Authorization Failed.", preferredStyle: .alert)
+    func showAuthError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
     }

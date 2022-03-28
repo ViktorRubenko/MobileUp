@@ -16,14 +16,15 @@ final class AuthCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let viewModel = AuthViewModel(completionHandler: { [weak self] success in
-            if success {
+        let viewModel = AuthViewModel(completionHandler: { [weak self] result in
+            switch result {
+            case .success(_):
                 self?.presenter?.dismiss(animated: true, completion: {
                     let vc = NavigationController()
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate?)??.changeRootViewController(vc)
                 })
-            } else {
-                self?.presenter?.dismiss(animated: true, completion: { self?.presenter?.showAuthError() })
+            case .failure(let error):
+                self?.presenter?.dismiss(animated: true, completion: { self?.presenter?.showAuthError(message: error.localizedDescription) })
             }
         })
         let vc = AuthViewController(viewModel: viewModel)

@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum AuthError: Error {
-    case authError
-}
-
 final class AuthManager {
     
     private enum Constants {

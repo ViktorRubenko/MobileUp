@@ -9,16 +9,16 @@ import Foundation
 import WebKit
 
 final class AuthViewModel: NSObject, AuthViewModelProtocol {
-    var completionHandler: ((Bool) -> Void)?
+    var completionHandler: ((Result<Bool, AuthError>) -> Void)?
     weak var webView: WKWebView?
     
-    init(completionHandler: @escaping (Bool) -> Void) {
+    init(completionHandler: @escaping (Result<Bool, AuthError>) -> Void) {
         self.completionHandler = completionHandler
     }
     
     func fetch() {
         guard let url = AuthManager.shared.signInURL else {
-            completionHandler?(false)
+            completionHandler?(.failure(AuthError.unknown))
             return
         }
         webView?.load(URLRequest(url: url))
@@ -33,10 +33,18 @@ extension AuthViewModel: WKNavigationDelegate {
         switch AuthManager.shared.getAccessToken(url.absoluteString) {
         case .success(let finished):
             if finished {
-                self.completionHandler?(true)
+                self.completionHandler?(.success(true))
             }
         case .failure(_):
-            self.completionHandler?(false)
+            self.completionHandler?(.failure(AuthError.authError))
         }
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        if (error as NSError).code == -1009 {
+            completionHandler?(.failure(AuthError.connectionError))
+            return
+        }
+        completionHandler?(.failure(AuthError.unknown))
     }
 }
