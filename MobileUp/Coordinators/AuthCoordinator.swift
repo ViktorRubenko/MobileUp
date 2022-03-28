@@ -5,7 +5,6 @@
 //  Created by Victor Rubenko on 28.03.2022.
 //
 
-import Foundation
 import UIKit
 
 final class AuthCoordinator: CoordinatorProtocol {
@@ -20,7 +19,7 @@ final class AuthCoordinator: CoordinatorProtocol {
             switch result {
             case .success(_):
                 self?.presenter?.dismiss(animated: true, completion: {
-                    let vc = PhotosNavigationController()
+                    let vc = UINavigationController(rootViewController: PhotosViewController(viewModel: PhotosViewModel()))
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate?)??.changeRootViewController(vc)
                 })
             case .failure(let error):

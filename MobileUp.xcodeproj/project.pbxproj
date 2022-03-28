@@ -30,6 +30,7 @@
 		E3FCCEB927F249C300F6B93D /* PhotosViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEB827F249C300F6B93D /* PhotosViewModelProtocol.swift */; };
 		E3FCCEBB27F24A0A00F6B93D /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */; };
 		E3FCCEBD27F24B6600F6B93D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBC27F24B6600F6B93D /* Functions.swift */; };
+		E3FCCEBF27F252F800F6B93D /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		E3FCCEB827F249C300F6B93D /* PhotosViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModelProtocol.swift; sourceTree = "<group>"; };
 		E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		E3FCCEBC27F24B6600F6B93D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FCCCE627F2249800F6B93D /* AuthCoordinator.swift */,
+				E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */,
 				E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */,
 			);
 			path = Coordinators;
@@ -372,6 +375,7 @@
 				E3FCCEB727F249A200F6B93D /* PhotosViewModel.swift in Sources */,
 				E3FCCEBB27F24A0A00F6B93D /* PhotoModel.swift in Sources */,
 				E3FCCCE827F2249800F6B93D /* AuthCoordinator.swift in Sources */,
+				E3FCCEBF27F252F800F6B93D /* RootCoordinator.swift in Sources */,
 				E3FCCCCA27F1E3C500F6B93D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,9 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = AuthManager.shared.isSignIn ? UINavigationController(rootViewController: PhotosViewController()) : WelcomeViewController()
         window.makeKeyAndVisible()
         self.window = window
+        
+        let coordinator = RootCoordinator()
+        coordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -54,11 +56,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard let window = self.window else { return }
-        
         window.rootViewController = vc
         
         if animated {
             UIView.transition(with: window, duration: 0.35, options: [.transitionFlipFromLeft], animations: nil)
         }
+    }
+    
+    func setRootViewController(_ vc: UIViewController) {
+        guard let window = self.window else { return }
+        window.rootViewController = vc
     }
 }
