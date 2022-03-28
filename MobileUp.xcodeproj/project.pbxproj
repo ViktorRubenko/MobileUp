@@ -19,7 +19,6 @@
 		E3FCCCD227F1EAA100F6B93D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCD127F1EAA100F6B93D /* Observable.swift */; };
 		E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */; };
 		E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */; };
-		E3FCCCE227F210FE00F6B93D /* PhotosNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCE127F210FE00F6B93D /* PhotosNavigationController.swift */; };
 		E3FCCCE827F2249800F6B93D /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCE627F2249800F6B93D /* AuthCoordinator.swift */; };
 		E3FCCCE927F2249800F6B93D /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */; };
 		E3FCCCED27F2289900F6B93D /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCEC27F2289900F6B93D /* CustomErrors.swift */; };
@@ -27,6 +26,10 @@
 		E3FCCCF327F22B3100F6B93D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCCF227F22B3100F6B93D /* PhotoCollectionViewCell.swift */; };
 		E3FCCEB327F247C900F6B93D /* PhotosResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEB227F247C900F6B93D /* PhotosResponseModel.swift */; };
 		E3FCCEB527F247FE00F6B93D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEB427F247FE00F6B93D /* APICaller.swift */; };
+		E3FCCEB727F249A200F6B93D /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEB627F249A200F6B93D /* PhotosViewModel.swift */; };
+		E3FCCEB927F249C300F6B93D /* PhotosViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEB827F249C300F6B93D /* PhotosViewModelProtocol.swift */; };
+		E3FCCEBB27F24A0A00F6B93D /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */; };
+		E3FCCEBD27F24B6600F6B93D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEBC27F24B6600F6B93D /* Functions.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +51,6 @@
 		E3FCCCD127F1EAA100F6B93D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelProtocol.swift; sourceTree = "<group>"; };
 		E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
-		E3FCCCE127F210FE00F6B93D /* PhotosNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosNavigationController.swift; sourceTree = "<group>"; };
 		E3FCCCE627F2249800F6B93D /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		E3FCCCEC27F2289900F6B93D /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
@@ -56,6 +58,10 @@
 		E3FCCCF227F22B3100F6B93D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3FCCEB227F247C900F6B93D /* PhotosResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosResponseModel.swift; sourceTree = "<group>"; };
 		E3FCCEB427F247FE00F6B93D /* APICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		E3FCCEB627F249A200F6B93D /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		E3FCCEB827F249C300F6B93D /* PhotosViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModelProtocol.swift; sourceTree = "<group>"; };
+		E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		E3FCCEBC27F24B6600F6B93D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FCCCCE27F1EA1400F6B93D /* AuthViewModel.swift */,
+				E3FCCEB627F249A200F6B93D /* PhotosViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 			children = (
 				E3FCCCD127F1EAA100F6B93D /* Observable.swift */,
 				E3FCCCEC27F2289900F6B93D /* CustomErrors.swift */,
+				E3FCCEBC27F24B6600F6B93D /* Functions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 			children = (
 				E3FCCCD827F1FD2100F6B93D /* AuthViewModelProtocol.swift */,
 				E3FCCCDA27F1FEA500F6B93D /* ViewModelProtocol.swift */,
+				E3FCCEB827F249C300F6B93D /* PhotosViewModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -215,7 +224,6 @@
 		E3FCCCEB27F224E100F6B93D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E3FCCCE127F210FE00F6B93D /* PhotosNavigationController.swift */,
 				E3FCCCF027F22A9500F6B93D /* PhotosViewController.swift */,
 			);
 			path = Main;
@@ -225,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				E3FCCEB227F247C900F6B93D /* PhotosResponseModel.swift */,
+				E3FCCEBA27F24A0A00F6B93D /* PhotoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,7 +359,6 @@
 				E3FCCCCF27F1EA1400F6B93D /* AuthViewModel.swift in Sources */,
 				E3FCCCA627F1D72500F6B93D /* AppDelegate.swift in Sources */,
 				E3FCCEB327F247C900F6B93D /* PhotosResponseModel.swift in Sources */,
-				E3FCCCE227F210FE00F6B93D /* PhotosNavigationController.swift in Sources */,
 				E3FCCCE927F2249800F6B93D /* CoordinatorProtocol.swift in Sources */,
 				E3FCCCA827F1D72500F6B93D /* SceneDelegate.swift in Sources */,
 				E3FCCCF127F22A9500F6B93D /* PhotosViewController.swift in Sources */,
@@ -358,7 +366,11 @@
 				E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */,
 				E3FCCEB527F247FE00F6B93D /* APICaller.swift in Sources */,
 				E3FCCCED27F2289900F6B93D /* CustomErrors.swift in Sources */,
+				E3FCCEBD27F24B6600F6B93D /* Functions.swift in Sources */,
+				E3FCCEB927F249C300F6B93D /* PhotosViewModelProtocol.swift in Sources */,
 				E3FCCCD927F1FD2100F6B93D /* AuthViewModelProtocol.swift in Sources */,
+				E3FCCEB727F249A200F6B93D /* PhotosViewModel.swift in Sources */,
+				E3FCCEBB27F24A0A00F6B93D /* PhotoModel.swift in Sources */,
 				E3FCCCE827F2249800F6B93D /* AuthCoordinator.swift in Sources */,
 				E3FCCCCA27F1E3C500F6B93D /* Constants.swift in Sources */,
 			);
