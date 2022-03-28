@@ -33,16 +33,17 @@ final class AuthManager {
         UserDefaults.standard.value(forKey: Keys.expirationDate.rawValue) as? Date
     }
     
-    private var shouldRefreshToken: Bool {
+    private var accessTokenIsValid: Bool {
         guard let expirationDate = expirationDate else {
             return false
         }
-        return Date().addingTimeInterval(300) >= expirationDate
+        return Date().addingTimeInterval(60 * 10) <= expirationDate
     }
     
     public var isSignIn: Bool {
-        accessToken != nil
+        accessToken != nil && accessTokenIsValid
     }
+    
     public var signInURL: URL? {
         var components = URLComponents(string: Constants.authURL)
         
