@@ -35,6 +35,7 @@
 		E3FCCEC327F25F7300F6B93D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC227F25F7300F6B93D /* PhotoViewController.swift */; };
 		E3FCCEC527F25FB000F6B93D /* PhotoViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC427F25FB000F6B93D /* PhotoViewModelProtocol.swift */; };
 		E3FCCEC727F2609F00F6B93D /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC627F2609F00F6B93D /* PhotoViewModel.swift */; };
+		E3FCCEC927F2689C00F6B93D /* PhotoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC827F2689C00F6B93D /* PhotoCoordinator.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		E3FCCEC227F25F7300F6B93D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		E3FCCEC427F25FB000F6B93D /* PhotoViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModelProtocol.swift; sourceTree = "<group>"; };
 		E3FCCEC627F2609F00F6B93D /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		E3FCCEC827F2689C00F6B93D /* PhotoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				E3FCCEBE27F252F800F6B93D /* RootCoordinator.swift */,
 				E3FCCCE727F2249800F6B93D /* CoordinatorProtocol.swift */,
 				E3FCCEC027F25C9000F6B93D /* ExitCoordinator.swift */,
+				E3FCCEC827F2689C00F6B93D /* PhotoCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FCCEC927F2689C00F6B93D /* PhotoCoordinator.swift in Sources */,
 				E3FCCCC427F1E19F00F6B93D /* WelcomeViewController.swift in Sources */,
 				E3FCCCC027F1D95D00F6B93D /* AuthManager.swift in Sources */,
 				E3FCCCCC27F1E76F00F6B93D /* AuthViewController.swift in Sources */,

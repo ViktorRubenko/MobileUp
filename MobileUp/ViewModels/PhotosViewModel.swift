@@ -8,6 +8,7 @@
 import UIKit
 
 final class PhotosViewModel: PhotosViewModelProtocol {
+    private (set) var photoResponses = [ImageItem]()
     let photos = Observable<[PhotoCellModel]>([])
     let errorMessage = Observable<String>("")
     
@@ -29,6 +30,7 @@ final class PhotosViewModel: PhotosViewModelProtocol {
                     }
                     return PhotoCellModel(url: url)
                 }
+                self.photoResponses = response.items
             case .failure(let error):
                 self.errorHandler(error)
             }

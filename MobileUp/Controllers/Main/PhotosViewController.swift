@@ -113,4 +113,8 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.configure(viewModel.photos.value[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        PhotoCoordinator(from: self, startPhotoIndex: indexPath.row, photoResponses: viewModel.photoResponses).start()
+    }
 }

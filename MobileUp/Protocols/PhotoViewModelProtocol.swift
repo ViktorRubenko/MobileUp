@@ -9,6 +9,6 @@ import Foundation
 
 protocol PhotoViewModelProtocol: ViewModelProtocol {
     var bottomPhotos: Observable<[PhotoCellModel]> { get }
-    var currentPhotoURL: Observable<String> { get }
-    var dateString: Observable<String> { get }
+    var currentPhotoURL: Observable<URL?> { get }
+    var dateString: Observable<String?> { get }
 }
