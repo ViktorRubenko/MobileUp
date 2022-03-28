@@ -21,16 +21,34 @@ final class PhotoViewModel: PhotoViewModelProtocol {
     init(startPhotoIndex: Int, photoResponses: [ImageItem]) {
         currentPhotoIndex = startPhotoIndex
         self.photoResponses = photoResponses
+        
     }
     
     func fetch() {
-        updateImage()
+        updatePhoto()
+        if bottomPhotos.value.isEmpty {
+            updateBottomPhotos()
+        }
     }
     
-    private func updateImage(){
+    func didSelectItem(itemIndex: Int) {
+        currentPhotoIndex = itemIndex
+        fetch()
+    }
+    
+    private func updatePhoto() {
         guard let url = findClosestSizeImage(imageSizes: currentPhoto.sizes, requiredSize: CGSize(width: 5000, height: 5000)) else {
             return
         }
         currentPhotoURL.value = URL(string: url)
+    }
+    
+    private func updateBottomPhotos() {
+        bottomPhotos.value = photoResponses.compactMap {
+            guard let url = findClosestSizeImage(imageSizes: $0.sizes, requiredSize: CGSize(width: 200, height: 200)) else {
+                return nil
+            }
+            return PhotoCellModel(url: url)
+        }
     }
 }

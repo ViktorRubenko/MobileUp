@@ -11,4 +11,6 @@ protocol PhotoViewModelProtocol: ViewModelProtocol {
     var bottomPhotos: Observable<[PhotoCellModel]> { get }
     var currentPhotoURL: Observable<URL?> { get }
     var dateString: Observable<String?> { get }
+    
+    func didSelectItem(itemIndex: Int)
 }

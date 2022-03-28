@@ -15,6 +15,7 @@ class PhotoViewController: UIViewController {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.kf.indicatorType = .activity
         return imageView
     }()
     
@@ -27,6 +28,16 @@ class PhotoViewController: UIViewController {
         scrollView.delegate = self
         scrollView.bounces = false
         return scrollView
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero, collectionViewLayout: self.createLayout())
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+        return collectionView
     }()
     
     init(viewModel: PhotoViewModelProtocol) {
@@ -67,6 +78,14 @@ extension PhotoViewController {
             make.center.equalTo(scrollView)
         }
         
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-50)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(56)
+        }
+        
     }
     
     private func setupNavigationItem() {
@@ -78,6 +97,24 @@ extension PhotoViewController {
             guard let url = url else { return }
             self?.imageView.kf.setImage(with: url)
         }
+        
+        viewModel.bottomPhotos.bind { [weak self] _ in
+            self?.collectionView.reloadData()
+        }
+    }
+    
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        let group = NSCollectionLayoutGroup
+            .horizontal(layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(56), heightDimension: .absolute(56)),
+                        subitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 2
+        section.orthogonalScrollingBehavior = .continuous
+        
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }
 // MARK: - UIScrollViewDelegate
@@ -93,5 +130,21 @@ extension PhotoViewController: UIScrollViewDelegate {
         imageView.center = CGPoint(
             x: scrollView.contentSize.width * 0.5 + offsetX,
             y: scrollView.contentSize.height * 0.5 + offsetY)
+    }
+}
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.bottomPhotos.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
+        cell.configure(viewModel.bottomPhotos.value[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItem(itemIndex: indexPath.row)
     }
 }
