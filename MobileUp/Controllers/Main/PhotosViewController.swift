@@ -11,15 +11,19 @@ class PhotosViewController: UIViewController {
     
     private var viewModel: PhotosViewModelProtocol!
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, enviroment in
-            self.createSection(sectionIndex, enviroment)
-        }))
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: {
+                sectionIndex, enviroment in
+                self.createSection(sectionIndex, enviroment)
+            }))
+        collectionView.register(
+            PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
     }()
-
+    
     init(viewModel: PhotosViewModelProtocol) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
@@ -31,7 +35,7 @@ class PhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
         setupNavigationItem()
         setupBinders()
