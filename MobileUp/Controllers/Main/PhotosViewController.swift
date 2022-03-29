@@ -21,9 +21,15 @@ class PhotosViewController: UIViewController {
             PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     private var showImageError = false
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlChanged), for: .valueChanged)
+        return refreshControl
+    }()
     
     init(viewModel: PhotosViewModelProtocol) {
         super.init(nibName: nil, bundle: nil)
@@ -43,6 +49,11 @@ class PhotosViewController: UIViewController {
         
         viewModel.fetch()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        collectionView.refreshControl?.endRefreshing()
+    }
 }
 // MARK: - Methods
 extension PhotosViewController {
@@ -53,15 +64,18 @@ extension PhotosViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        collectionView.refreshControl = refreshControl
     }
     
     func setupBinders() {
         viewModel.photos.bind { [weak self] _ in
             self?.showImageError = true
             self?.collectionView.reloadData()
+            self?.collectionView.refreshControl?.endRefreshing()
         }
         
         viewModel.errorMessage.bind { [weak self] errorDescription in
+            self?.collectionView.refreshControl?.endRefreshing()
             let alert = UIAlertController(
                 title: NSLocalizedString("Error", comment: "Alert title."),
                 message: errorDescription, preferredStyle: .alert)
@@ -115,6 +129,11 @@ extension PhotosViewController {
 extension PhotosViewController {
     @objc func didTapExitButton() {
         ExitCoordinator().start()
+    }
+    
+    @objc func refreshControlChanged() {
+        collectionView.refreshControl?.beginRefreshing()
+        viewModel.fetch()
     }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
