@@ -47,7 +47,7 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController {
     func setupUI() {
         let safeArea = view.safeAreaLayoutGuide
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Constants.Colors.viewBackground
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -98,7 +98,7 @@ extension PhotosViewController {
             style: .plain,
             target: self,
             action: #selector(didTapExitButton))
-        navigationItem.rightBarButtonItem?.tintColor = .label
+        navigationItem.rightBarButtonItem?.tintColor = Constants.Colors.tint
     }
 }
 // MARK: - Actions

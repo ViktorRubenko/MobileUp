@@ -62,7 +62,7 @@ class PhotoViewController: UIViewController {
 // MARK: - Methods
 extension PhotoViewController {
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = Constants.Colors.viewBackground
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         
@@ -90,11 +90,11 @@ extension PhotoViewController {
     private func setupNavigationItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didTapBackButton))
-        navigationItem.leftBarButtonItem?.tintColor = .label
+        navigationItem.leftBarButtonItem?.tintColor = Constants.Colors.tint
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .action, target: self, action: #selector(didTapShareButton))
-        navigationItem.rightBarButtonItem?.tintColor = .label
+        navigationItem.rightBarButtonItem?.tintColor = Constants.Colors.tint
     }
     
     private func setupBinders() {

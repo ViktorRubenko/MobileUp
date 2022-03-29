@@ -14,8 +14,8 @@ class WelcomeViewController: UIViewController {
         button.setTitle(
             NSLocalizedString("Auth via VK", comment: "AuthButton title"),
             for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
+        button.setTitleColor(Constants.Colors.authButtonTint, for: .normal)
+        button.backgroundColor = Constants.Colors.authButtonBackground
         button.titleLabel?.font = Constants.Fonts.authButtonFont
         return button
     }()
@@ -51,7 +51,7 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController {
     private func setupUI() {
 
-        view.backgroundColor = .white
+        view.backgroundColor = Constants.Colors.viewBackground
         
         view.addSubview(titleLabel)
         view.addSubview(authButton)
