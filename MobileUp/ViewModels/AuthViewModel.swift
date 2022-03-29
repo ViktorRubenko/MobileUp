@@ -40,7 +40,6 @@ final class AuthViewModel: NSObject, AuthViewModelProtocol {
 
 extension AuthViewModel: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        loadCompletion?()
         guard let url = webView.url else {
             return
         }
@@ -56,11 +55,18 @@ extension AuthViewModel: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        loadCompletion?()
         if (error as NSError).code == -1009 {
             completionHandler?(.failure(AuthError.connectionError))
             return
         }
         completionHandler?(.failure(AuthError.unknown))
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loadCompletion?()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        loadCompletion?()
     }
 }
