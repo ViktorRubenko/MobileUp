@@ -171,7 +171,21 @@ extension PhotoViewController {
     }
     
     @objc func savePhoto() {
-        HudView.instanceFromNib().run(inView: view)
+        guard let image = imageView.image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveImage(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func saveImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if error == nil {
+            HudView.instanceFromNib().run(inView: view)
+        } else {
+            let alert = UIAlertController(
+                title: NSLocalizedString("Error", comment: "Alert title."),
+                message: NSLocalizedString("App needs access to the gallery to save photos.", comment: "Gallery access error message."),
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        }
     }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
