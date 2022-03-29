@@ -28,13 +28,10 @@ final class AuthViewModel: NSObject, AuthViewModelProtocol {
     }
     
     private func clearWKDataStore() {
-        let dataStore = WKWebsiteDataStore.default()
-        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            dataStore.removeData(
-                ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
-                for: records,
-                completionHandler: { print("Clear Cookies") })
-        }
+        WKWebsiteDataStore.default().removeData(
+            ofTypes: [WKWebsiteDataTypeCookies],
+            modifiedSince: Date(timeIntervalSince1970: 0),
+            completionHandler: {})
     }
 }
 
