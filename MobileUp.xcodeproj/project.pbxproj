@@ -36,6 +36,8 @@
 		E3FCCEC527F25FB000F6B93D /* PhotoViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC427F25FB000F6B93D /* PhotoViewModelProtocol.swift */; };
 		E3FCCEC727F2609F00F6B93D /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC627F2609F00F6B93D /* PhotoViewModel.swift */; };
 		E3FCCEC927F2689C00F6B93D /* PhotoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCEC827F2689C00F6B93D /* PhotoCoordinator.swift */; };
+		E3FCCECD27F28A4400F6B93D /* HudView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FCCECC27F28A4400F6B93D /* HudView.xib */; };
+		E3FCCECF27F28B6200F6B93D /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCECE27F28B6200F6B93D /* HudView.swift */; };
 		E693945827C9151ADD216F3B /* Pods_MobileUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBC68CF0E8525317D74D84C /* Pods_MobileUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		E3FCCEC427F25FB000F6B93D /* PhotoViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModelProtocol.swift; sourceTree = "<group>"; };
 		E3FCCEC627F2609F00F6B93D /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		E3FCCEC827F2689C00F6B93D /* PhotoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCoordinator.swift; sourceTree = "<group>"; };
+		E3FCCECC27F28A4400F6B93D /* HudView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HudView.xib; sourceTree = "<group>"; };
+		E3FCCECE27F28B6200F6B93D /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 			children = (
 				E3FCCCB027F1D72700F6B93D /* LaunchScreen.storyboard */,
 				E3FCCCF227F22B3100F6B93D /* PhotoCollectionViewCell.swift */,
+				E3FCCECC27F28A4400F6B93D /* HudView.xib */,
+				E3FCCECE27F28B6200F6B93D /* HudView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FCCECD27F28A4400F6B93D /* HudView.xib in Resources */,
 				E3FCCCB227F1D72700F6B93D /* LaunchScreen.storyboard in Resources */,
 				E3FCCCAF27F1D72700F6B93D /* Assets.xcassets in Resources */,
 			);
@@ -382,6 +389,7 @@
 				E3FCCCE927F2249800F6B93D /* CoordinatorProtocol.swift in Sources */,
 				E3FCCCA827F1D72500F6B93D /* SceneDelegate.swift in Sources */,
 				E3FCCEC527F25FB000F6B93D /* PhotoViewModelProtocol.swift in Sources */,
+				E3FCCECF27F28B6200F6B93D /* HudView.swift in Sources */,
 				E3FCCCF127F22A9500F6B93D /* PhotosViewController.swift in Sources */,
 				E3FCCCF327F22B3100F6B93D /* PhotoCollectionViewCell.swift in Sources */,
 				E3FCCCDB27F1FEA500F6B93D /* ViewModelProtocol.swift in Sources */,

@@ -149,7 +149,9 @@ extension PhotoViewController {
     
     @objc func didTapShareButton() {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            self.savePhoto()
+        }
         let shareAction = UIAlertAction(title: "Share", style: .default) { _ in
             self.sharePhoto()
         }
@@ -166,6 +168,10 @@ extension PhotoViewController {
         guard let url = viewModel.currentPhotoURL.value else { return }
         let ac = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         present(ac, animated: true)
+    }
+    
+    @objc func savePhoto() {
+        HudView.instanceFromNib().run(inView: view)
     }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
