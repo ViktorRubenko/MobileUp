@@ -200,13 +200,20 @@ extension PhotoViewController {
     
     @objc func didTapShareButton() {
         let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+        let saveAction = UIAlertAction(
+            title: NSLocalizedString("Save", comment: "Save photo action."),
+            style: .default) { _ in
             self.savePhoto()
         }
-        let shareAction = UIAlertAction(title: "Share", style: .default) { _ in
+        let shareAction = UIAlertAction(
+            title: NSLocalizedString("Share", comment: "Share photo action."),
+            style: .default) { _ in
             self.sharePhoto()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(
+            title: NSLocalizedString("Cancel", comment: "Cancel photo action."),
+            style: .cancel,
+            handler: nil)
         
         if allowToSave {
             menu.addAction(saveAction)
