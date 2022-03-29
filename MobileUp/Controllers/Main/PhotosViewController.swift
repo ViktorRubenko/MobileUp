@@ -14,8 +14,8 @@ class PhotosViewController: UIViewController {
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: {
-                sectionIndex, enviroment in
-                self.createSection(sectionIndex, enviroment)
+                [weak self] sectionIndex, enviroment in
+                self!.createSection(sectionIndex, enviroment)
             }))
         collectionView.register(
             PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
