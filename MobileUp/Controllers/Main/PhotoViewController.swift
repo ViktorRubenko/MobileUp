@@ -91,6 +91,10 @@ extension PhotoViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didTapBackButton))
         navigationItem.leftBarButtonItem?.tintColor = .label
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .action, target: self, action: #selector(didTapShareButton))
+        navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     private func setupBinders() {
@@ -141,6 +145,27 @@ extension PhotoViewController: UIScrollViewDelegate {
 extension PhotoViewController {
     @objc func didTapBackButton() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func didTapShareButton() {
+        let menu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: nil)
+        let shareAction = UIAlertAction(title: "Share", style: .default) { _ in
+            self.sharePhoto()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        menu.addAction(saveAction)
+        menu.addAction(shareAction)
+        menu.addAction(cancelAction)
+        
+        present(menu, animated: true)
+    }
+    
+    @objc func sharePhoto() {
+        guard let url = viewModel.currentPhotoURL.value else { return }
+        let ac = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        present(ac, animated: true)
     }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
