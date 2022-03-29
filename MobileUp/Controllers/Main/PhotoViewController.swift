@@ -85,11 +85,12 @@ extension PhotoViewController {
             make.trailing.equalToSuperview()
             make.height.equalTo(56)
         }
-        
     }
     
     private func setupNavigationItem() {
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didTapBackButton))
+        navigationItem.leftBarButtonItem?.tintColor = .label
     }
     
     private func setupBinders() {
@@ -100,6 +101,10 @@ extension PhotoViewController {
         
         viewModel.bottomPhotos.bind { [weak self] _ in
             self?.collectionView.reloadData()
+        }
+        
+        viewModel.dateString.bind { [weak self] value in
+            self?.title = value
         }
     }
     
@@ -130,6 +135,12 @@ extension PhotoViewController: UIScrollViewDelegate {
         imageView.center = CGPoint(
             x: scrollView.contentSize.width * 0.5 + offsetX,
             y: scrollView.contentSize.height * 0.5 + offsetY)
+    }
+}
+// MARK: - Actions {
+extension PhotoViewController {
+    @objc func didTapBackButton() {
+        navigationController?.popViewController(animated: true)
     }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource

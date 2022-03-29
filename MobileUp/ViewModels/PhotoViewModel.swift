@@ -26,6 +26,7 @@ final class PhotoViewModel: PhotoViewModelProtocol {
     
     func fetch() {
         updatePhoto()
+        updateDateString()
         if bottomPhotos.value.isEmpty {
             updateBottomPhotos()
         }
@@ -37,18 +38,28 @@ final class PhotoViewModel: PhotoViewModelProtocol {
     }
     
     private func updatePhoto() {
-        guard let url = findClosestSizeImage(imageSizes: currentPhoto.sizes, requiredSize: CGSize(width: 5000, height: 5000)) else {
-            return
-        }
+        guard let url = findClosestSizeImage(
+            imageSizes: currentPhoto.sizes, requiredSize: CGSize(width: 1000, height: 1000)) else {
+                return
+            }
         currentPhotoURL.value = URL(string: url)
     }
     
     private func updateBottomPhotos() {
         bottomPhotos.value = photoResponses.compactMap {
-            guard let url = findClosestSizeImage(imageSizes: $0.sizes, requiredSize: CGSize(width: 200, height: 200)) else {
-                return nil
-            }
+            guard let url = findClosestSizeImage(
+                imageSizes: $0.sizes, requiredSize: CGSize(width: 200, height: 200)) else {
+                    return nil
+                }
             return PhotoCellModel(url: url)
         }
+    }
+    
+    private func updateDateString() {
+        let date = Date(timeIntervalSince1970: Double(currentPhoto.date))
+        let formatter = DateFormatter()
+        formatter.locale = .current
+        formatter.dateFormat = "d MMMM yyyy"
+        dateString.value = formatter.string(from: date)
     }
 }
