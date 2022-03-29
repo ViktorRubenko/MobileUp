@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class PhotosViewModel: PhotosViewModelProtocol {
     private (set) var photoResponses = [ImageItem]()
@@ -38,6 +39,10 @@ final class PhotosViewModel: PhotosViewModelProtocol {
     }
     
     private func errorHandler(_ error: Error) {
-        errorMessage.value = error.localizedDescription
+        if error as? AFError != nil {
+            errorMessage.value = NSLocalizedString("Failed to get response from server.", comment: "Server response error desctioption.")
+        } else {
+            errorMessage.value = error.localizedDescription
+        }
     }
 }

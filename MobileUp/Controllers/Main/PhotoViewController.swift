@@ -40,6 +40,8 @@ class PhotoViewController: UIViewController {
         return collectionView
     }()
     
+    private var showImageError = true
+    
     init(viewModel: PhotoViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -110,7 +112,14 @@ extension PhotoViewController {
     private func setupBinders() {
         viewModel.currentPhotoURL.bind { [weak self] url in
             guard let url = url else { return }
-            self?.imageView.kf.setImage(with: url)
+            self?.imageView.kf.setImage(with: url) { [weak self] result in
+                switch result {
+                case .success(_):
+                    break
+                case .failure(_):
+                    self?.showImageAlert()
+                }
+            }
         }
         
         viewModel.bottomPhotos.bind { [weak self] _ in
@@ -150,6 +159,17 @@ extension PhotoViewController: UIScrollViewDelegate {
             x: scrollView.contentSize.width * 0.5 + offsetX,
             y: scrollView.contentSize.height * 0.5 + offsetY)
     }
+    
+    func showImageAlert() {
+        guard showImageError else { return }
+        showImageError = false
+        let alert = UIAlertController(
+            title: NSLocalizedString("Error", comment: "Alert title."),
+            message: NSLocalizedString("Failed to load image.", comment: "Fail image error description."),
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
 }
 // MARK: - Actions {
 extension PhotoViewController {
@@ -167,7 +187,9 @@ extension PhotoViewController {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        menu.addAction(saveAction)
+        if imageView.image != nil {
+            menu.addAction(saveAction)
+        }
         menu.addAction(shareAction)
         menu.addAction(cancelAction)
         
@@ -206,7 +228,9 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        cell.configure(viewModel.bottomPhotos.value[indexPath.row])
+        if cell.configure(viewModel.bottomPhotos.value[indexPath.row]) != nil, showImageError {
+            showImageAlert()
+        }
         return cell
     }
     

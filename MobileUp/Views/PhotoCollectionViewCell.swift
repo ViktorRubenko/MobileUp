@@ -43,9 +43,18 @@ extension PhotoCollectionViewCell {
         }
     }
     
-    func configure(_ model: PhotoCellModel) {
+    func configure(_ model: PhotoCellModel) -> KingfisherError? {
         let url = URL(string: model.url)
+        var imageError: KingfisherError?
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: url)
+        imageView.kf.setImage(with: url) { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(let error):
+                imageError = error
+            }
+        }
+        return imageError
     }
 }

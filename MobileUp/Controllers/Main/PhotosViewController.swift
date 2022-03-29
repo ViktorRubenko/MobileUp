@@ -23,6 +23,7 @@ class PhotosViewController: UIViewController {
         collectionView.dataSource = self
         return collectionView
     }()
+    private var showImageError = false
     
     init(viewModel: PhotosViewModelProtocol) {
         super.init(nibName: nil, bundle: nil)
@@ -56,6 +57,7 @@ extension PhotosViewController {
     
     func setupBinders() {
         viewModel.photos.bind { [weak self] _ in
+            self?.showImageError = true
             self?.collectionView.reloadData()
         }
         
@@ -124,7 +126,15 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        cell.configure(viewModel.photos.value[indexPath.row])
+        if cell.configure(viewModel.photos.value[indexPath.row]) != nil, showImageError {
+            showImageError = false
+            let alert = UIAlertController(
+                title: NSLocalizedString("Error", comment: "Alert title."),
+                message: NSLocalizedString("Failed to load image.", comment: "Fail image error description."),
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        }
         return cell
     }
     
