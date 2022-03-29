@@ -5,7 +5,7 @@
 //  Created by Victor Rubenko on 29.03.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol PhotoViewModelProtocol: ViewModelProtocol {
     var bottomPhotos: Observable<[PhotoCellModel]> { get }
@@ -13,4 +13,5 @@ protocol PhotoViewModelProtocol: ViewModelProtocol {
     var dateString: Observable<String?> { get }
     
     func didSelectItem(itemIndex: Int)
+    func swipeNext(_ swipeDirection: UISwipeGestureRecognizer.Direction)
 }

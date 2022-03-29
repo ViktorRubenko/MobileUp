@@ -62,4 +62,22 @@ final class PhotoViewModel: PhotoViewModelProtocol {
         formatter.dateFormat = "d MMMM yyyy"
         dateString.value = formatter.string(from: date)
     }
+    
+    
+    func swipeNext(_ swipeDirection: UISwipeGestureRecognizer.Direction) {
+        switch swipeDirection {
+        case .left:
+            guard currentPhotoIndex + 1 < photoResponses.count else { return }
+            currentPhotoIndex += 1
+            updatePhoto()
+            updateDateString()
+        case .right:
+            guard currentPhotoIndex - 1 >= 0 else { return }
+            currentPhotoIndex -= 1
+            updatePhoto()
+            updateDateString()
+        default:
+            break
+        }
+    }
 }

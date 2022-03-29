@@ -56,6 +56,7 @@ class PhotoViewController: UIViewController {
         
         setupUI()
         setupNavigationItem()
+        setupGestureRecognizers()
         setupBinders()
         
         viewModel.fetch()
@@ -144,6 +145,16 @@ extension PhotoViewController {
         
         return UICollectionViewCompositionalLayout(section: section)
     }
+    
+    private func setupGestureRecognizers() {
+        let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeLeft))
+        leftSwipeRecognizer.direction = .left
+        let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeRight))
+        rightSwipeRecognizer.direction = .right
+        
+        scrollView.addGestureRecognizer(leftSwipeRecognizer)
+        scrollView.addGestureRecognizer(rightSwipeRecognizer)
+    }
 }
 // MARK: - UIScrollViewDelegate
 extension PhotoViewController: UIScrollViewDelegate {
@@ -152,6 +163,12 @@ extension PhotoViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        if scrollView.zoomScale == 1.0 {
+            scrollView.isScrollEnabled = false
+        } else {
+            scrollView.isScrollEnabled = true
+        }
+        
         let offsetX = max((scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5, 0.0)
         let offsetY = max((scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5, 0.0)
         
@@ -218,6 +235,14 @@ extension PhotoViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true)
         }
+    }
+    
+    @objc func didSwipeLeft(_ sender: UISwipeGestureRecognizer) {
+        viewModel.swipeNext(sender.direction)
+    }
+    
+    @objc func didSwipeRight(_ sender: UISwipeGestureRecognizer) {
+        viewModel.swipeNext(sender.direction)
     }
 }
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
