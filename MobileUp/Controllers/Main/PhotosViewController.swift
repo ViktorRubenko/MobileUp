@@ -75,11 +75,12 @@ extension PhotosViewController {
         }
         
         viewModel.errorMessage.bind { [weak self] errorDescription in
-            self?.collectionView.refreshControl?.endRefreshing()
             let alert = UIAlertController(
                 title: NSLocalizedString("Error", comment: "Alert title."),
                 message: errorDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+                self?.collectionView.refreshControl?.endRefreshing()
+            }))
             self?.present(alert, animated: true)
         }
     }

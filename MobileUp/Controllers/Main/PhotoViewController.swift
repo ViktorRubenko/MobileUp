@@ -16,6 +16,7 @@ class PhotoViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.kf.indicatorType = .activity
+        imageView.tintColor = Constants.Colors.tint.withAlphaComponent(0.5)
         return imageView
     }()
     
@@ -41,6 +42,7 @@ class PhotoViewController: UIViewController {
     }()
     
     private var showImageError = true
+    private var allowToSave = false
     
     init(viewModel: PhotoViewModelProtocol) {
         self.viewModel = viewModel
@@ -116,8 +118,10 @@ extension PhotoViewController {
             self?.imageView.kf.setImage(with: url) { [weak self] result in
                 switch result {
                 case .success(_):
-                    break
+                    self?.allowToSave = true
                 case .failure(_):
+                    self?.imageView.image = UIImage(systemName: "photo.circle.fill")
+                    self?.allowToSave = false
                     self?.showImageAlert()
                 }
             }
@@ -204,7 +208,7 @@ extension PhotoViewController {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        if imageView.image != nil {
+        if allowToSave {
             menu.addAction(saveAction)
         }
         menu.addAction(shareAction)
@@ -238,10 +242,12 @@ extension PhotoViewController {
     }
     
     @objc func didSwipeLeft(_ sender: UISwipeGestureRecognizer) {
+        showImageError = true
         viewModel.swipeNext(sender.direction)
     }
     
     @objc func didSwipeRight(_ sender: UISwipeGestureRecognizer) {
+        showImageError = true
         viewModel.swipeNext(sender.direction)
     }
 }
