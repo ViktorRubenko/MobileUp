@@ -25,7 +25,6 @@ class WelcomeViewController: UIViewController {
         label.text = "Mobile Up\nGallery"
         label.font = Constants.Fonts.titleLabelFont
         label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -51,6 +50,8 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController {
     private func setupUI() {
 
+        let safeArea = view.safeAreaLayoutGuide
+        
         view.backgroundColor = Constants.Colors.viewBackground
         
         view.addSubview(titleLabel)
@@ -59,7 +60,7 @@ extension WelcomeViewController {
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-24)
-            make.top.equalToSuperview().offset(164)
+            make.top.equalTo(safeArea).offset(136)
         }
         
         authButton.snp.makeConstraints { make in

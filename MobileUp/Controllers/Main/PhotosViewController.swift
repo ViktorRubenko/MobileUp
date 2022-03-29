@@ -46,12 +46,11 @@ class PhotosViewController: UIViewController {
 // MARK: - Methods
 extension PhotosViewController {
     func setupUI() {
-        let safeArea = view.safeAreaLayoutGuide
         view.backgroundColor = Constants.Colors.viewBackground
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(safeArea)
+            make.edges.equalToSuperview()
         }
     }
     
@@ -93,12 +92,21 @@ extension PhotosViewController {
     
     func setupNavigationItem() {
         title = "Mobile UP Gallery"
+        
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .medium),
+        ]
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: NSLocalizedString("Exit", comment: "Exit button title."),
             style: .plain,
             target: self,
             action: #selector(didTapExitButton))
         navigationItem.rightBarButtonItem?.tintColor = Constants.Colors.tint
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+            [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .medium),
+            ], for: .normal)
     }
 }
 // MARK: - Actions

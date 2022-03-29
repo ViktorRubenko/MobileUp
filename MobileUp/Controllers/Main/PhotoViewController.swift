@@ -89,11 +89,21 @@ extension PhotoViewController {
     
     private func setupNavigationItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didTapBackButton))
+            image: UIImage(
+                systemName: "chevron.left",
+                withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .medium)),
+            style: .done,
+            target: self,
+            action: #selector(didTapBackButton))
         navigationItem.leftBarButtonItem?.tintColor = Constants.Colors.tint
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .action, target: self, action: #selector(didTapShareButton))
+            image: UIImage(
+                systemName: "square.and.arrow.up",
+                withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .medium)),
+            style: .plain,
+            target: self,
+            action: #selector(didTapShareButton))
         navigationItem.rightBarButtonItem?.tintColor = Constants.Colors.tint
     }
     
